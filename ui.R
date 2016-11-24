@@ -6,7 +6,7 @@
 # 
 #    http://shiny.rstudio.com/
 #
-
+library(dplyr)
 library(shiny)
 library(shinydashboard)
 
@@ -17,7 +17,8 @@ sidebar <- dashboardSidebar(
     sidebarMenu(
         textInput("user", "Username:", value = ""),
         passwordInput("password", "Password: ", value = ""),
-        selectInput("family","Family", c("Laux", "Price", selected = "Laux")),
+        submitButton(text = "Submit"),
+        htmlOutput("selectUI_user_family"),
         menuItem("Home Page",
                  tabName = "homepage",
                  icon = icon("home")
